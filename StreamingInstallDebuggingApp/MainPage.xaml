@@ -8,16 +8,16 @@
     mc:Ignorable="d">
 
     <Grid Background="White" x:Name="MainGrid">
-        <TextBlock x:Name="Title_TextBlock" HorizontalAlignment="Center" Height="67" Margin="46,16,-50,0" TextWrapping="Wrap" Text="Streaming App Debugger" VerticalAlignment="Top" Width="364" Foreground="#FF31AC63" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="Title_TextBlock" HorizontalAlignment="Center" Height="67" Margin="46,15,-50,0" TextWrapping="Wrap" Text="Streaming Install Debugging App" VerticalAlignment="Top" Width="400" Foreground="#FF31AC63" FontSize="24" FontWeight="Bold"/>
 
         <TextBlock x:Name="ChangeUser_TextBlock" HorizontalAlignment="Left" Margin="10,80,0,0" Height="25" TextWrapping="Wrap" Text="Change User" VerticalAlignment="Top" FontWeight="Bold" />
         <CheckBox x:Name="ChangeUser_CheckBox" HorizontalAlignment="Left" Margin="170,75,0,0" Height="25" VerticalAlignment="Top" Checked="ChangeUserChecked" Unchecked="ChangeUserUnchecked"/>
 
         <TextBlock x:Name="UserSID_TextBlock" HorizontalAlignment="Left" Height="25" Margin="10,120,0,0" TextWrapping="Wrap" Text="User SID" VerticalAlignment="Top" Width="110" FontWeight="Bold" FocusVisualPrimaryBrush="#FF292424" Visibility="Collapsed"/>
         <TextBox x:Name="UserSID_TextBox" HorizontalAlignment="Left" Height="36" Margin="170,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="390" Visibility="Collapsed"/>
-        <Button x:Name="FindPackages_button" Content="Find DevMode Packages" HorizontalAlignment="Left" Height="36" Margin="570,120,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Click="FindPackages_button_Click" Visibility="Collapsed"/>
+        <Button x:Name="FindPackages_button" Content="Find Apps" HorizontalAlignment="Left" Height="36" Margin="570,120,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Click="FindPackages_button_Click" Visibility="Collapsed"/>
 
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="25" Margin="10,120,0,0" TextWrapping="Wrap" Text="DevMode Package" VerticalAlignment="Top" Width="152" FontWeight="Bold"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="25" Margin="10,120,0,0" TextWrapping="Wrap" Text="Stream-able Apps" VerticalAlignment="Top" Width="152" FontWeight="Bold"/>
         <ComboBox x:Name="Packages_combobox" HorizontalAlignment="Left" Height="36" Margin="170,120,0,0" VerticalAlignment="Top" Width="600" SelectedIndex="-1" SelectionChanged="Packages_combobox_SelectionChanged"/>
 
         <Line x:Name="divider" X1="780" Y1="0"  Margin="10,167,0,0" StrokeThickness="1" Stroke="Black"></Line>
@@ -40,16 +40,16 @@
                 </ListView>
             </ScrollViewer>
             
-            <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Height="25" Margin="10,180,0,0" TextWrapping="Wrap" Text="ContentGroupName" VerticalAlignment="Top" Width="152" FontWeight="Bold" Grid.Column="1"/>
+            <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Height="25" Margin="10,180,0,0" TextWrapping="Wrap" Text="Content Group" VerticalAlignment="Top" Width="152" FontWeight="Bold" Grid.Column="1"/>
             <ComboBox x:Name="ContentGroups_combobox" HorizontalAlignment="Left" Height="36" Margin="170,180,0,0" VerticalAlignment="Top" Width="250" SelectedIndex="-1" Grid.Column="1"/>
 
             <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" Height="25" Margin="10,230,0,0" TextWrapping="Wrap" Text="New State" VerticalAlignment="Top" Width="110" FontWeight="Bold" Grid.Column="1"/>
             <ComboBox x:Name="CGState_combobox" HorizontalAlignment="Left" Height="36" Margin="170,230,0,0" VerticalAlignment="Top" Width="250" Grid.Column="1"></ComboBox>
 
-            <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left" Height="25" Margin="10,280,0,0" TextWrapping="Wrap" Text="Percentage" VerticalAlignment="Top" Width="110" FontWeight="Bold" Grid.Column="1"/>
+            <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left" Height="25" Margin="10,280,0,0" TextWrapping="Wrap" Text="Staging Percentage" VerticalAlignment="Top" Width="150" FontWeight="Bold" Grid.Column="1"/>
             <Slider x:Name="Percent_slider" HorizontalAlignment="Left" Height="36" Margin="170,280,0,0" VerticalAlignment="Top" Width="250" Grid.Column="1"/>
 
-            <Button x:Name="SetCGState_button" Content="SetContentGroupState" HorizontalAlignment="Left" Height="36" Margin="170,330,0,0" VerticalAlignment="Top" Width="197" FontWeight="Bold" Click="SetCGState_button_Click" Grid.Column="1"/>
+            <Button x:Name="SetCGState_button" Content="Set Content Group State" HorizontalAlignment="Left" Height="36" Margin="170,330,0,0" VerticalAlignment="Top" Width="197" FontWeight="Bold" Click="SetCGState_button_Click" Grid.Column="1"/>
 
             <TextBlock x:Name="Status_Text" HorizontalAlignment="Left" Height="25" Margin="170,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="500" Foreground="#FF7C0606" FontSize="12" Grid.Column="1"/>
 
