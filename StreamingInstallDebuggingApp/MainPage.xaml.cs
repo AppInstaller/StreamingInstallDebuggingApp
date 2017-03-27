@@ -86,6 +86,7 @@ namespace StreamingInstallDebuggingApp
                 {
                     await m_DebugSettings.SetContentGroupStateAsync(p, contentGroupName, cgState);
                 }
+                UpdateCurrentContentGroupStates();
             }
             catch (Exception ex)
             {
@@ -106,27 +107,21 @@ namespace StreamingInstallDebuggingApp
             try
             {
                 var packages = m_PackageManager.FindPackagesForUser(this.UserSID_TextBox.Text.Trim());
-                var currentIndex = 0;
-                var selectedIndex = 0;
                 foreach (var package in packages)
                 {
                     if (package.IsDevelopmentMode)
                     {
-                        this.Packages_combobox.Items.Add(package.Id.FullName);
-
                         var groups = await package.GetContentGroupsAsync();
                         if (groups.Count > 0)
                         {
-                            selectedIndex = currentIndex;
+                            this.Packages_combobox.Items.Add(package.Id.FullName);
                         }
-
-                        currentIndex++;
                     }
                 }
 
                 if (this.Packages_combobox.Items.Count > 0)
                 {
-                    this.Packages_combobox.SelectedIndex = selectedIndex;
+                    this.Packages_combobox.SelectedIndex = this.Packages_combobox.Items.Count - 1;
                 }
             }
             catch (Exception ex)
@@ -156,6 +151,8 @@ namespace StreamingInstallDebuggingApp
             {
                 this.ContentGroups_combobox.SelectedIndex = 0;
             }
+
+            UpdateCurrentContentGroupStates();
         }
 
         private void ChangeUserChecked(object sender, RoutedEventArgs e)
@@ -189,6 +186,47 @@ namespace StreamingInstallDebuggingApp
                     margin.Top -= 50;
                     i.Margin = margin;
                 }
+            }
+        }
+
+        private async void UpdateCurrentContentGroupStates()
+        {
+            this.ContentGroupStates.Items.Clear();
+
+            Package p = FindPackage();
+            if (p == null) return;
+
+            var groups = await p.GetContentGroupsAsync();
+
+            foreach (var group in groups)
+            {
+                string contentgroup = group.Name + ": ";
+                switch (group.State)
+                {
+                    case PackageContentGroupState.NotStaged:
+                        {
+                            contentgroup += "NotStaged";
+                        }
+                        break;
+                    case PackageContentGroupState.Queued:
+                        {
+                            contentgroup += "Queued";
+                        }
+                        break;
+                    case PackageContentGroupState.Staging:
+                        {
+                            contentgroup += "Staging";
+                        }
+                        break;
+                    case PackageContentGroupState.Staged:
+                        {
+                            contentgroup += "Staged";
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                this.ContentGroupStates.Items.Add(contentgroup);
             }
         }
     }
